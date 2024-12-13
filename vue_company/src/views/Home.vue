@@ -7,19 +7,21 @@ import axios from 'axios';
 
 const products = ref([]);
 const category = ref([]);
-const rez = ref([]);
+
 
 const fetchProduct = async() =>{
   try {
+    fetchCategory()
     const {data} =await axios.get('https://bb2763669061f9ac.mokky.dev/items')
-    products.value=data
+    //products.value=data
     // this.posts = this.posts.map(p => {
     //     p.author = users.find(u => u.id === p.userId)
-    rez.value =data.map(p=> {
+    
+    products.value =data.map(p=> {
        
         p.category = category.value.find(cat=>cat.id===p.idCategory)['category']
 
-
+        console.log(p.category)
         return p
     }
           
