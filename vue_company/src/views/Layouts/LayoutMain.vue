@@ -17,7 +17,14 @@ import AppAsideNav from '@/components/AppAsideNav.vue';
                             <AppAsideNav></AppAsideNav>
                     </el-aside>
                     <el-container>
-                        <el-main>Main</el-main>
+                        <el-main>
+                            <div class="title">
+                                <slot name="title"></slot>
+                            </div>
+                            <div class="inner">
+                                <slot name="inner"></slot>
+                            </div>
+                        </el-main>
                         <el-footer>Footer</el-footer>
                     </el-container>
                 </el-container>
@@ -32,10 +39,8 @@ import AppAsideNav from '@/components/AppAsideNav.vue';
 @import '@/assets/main.scss';
 
 .container {
-
     max-width: 90%;
     margin: 0 auto;
-
 }
 
 .el-header{
@@ -47,8 +52,7 @@ import AppAsideNav from '@/components/AppAsideNav.vue';
 }
 
 .el-container {
-    min-height: 100%;
-    
+    min-height: 100%;  
 }
 
 .el-aside {
@@ -56,4 +60,13 @@ import AppAsideNav from '@/components/AppAsideNav.vue';
     background: #fdfdfd;  
 }
 
+.title {
+    margin: 10px;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.inner{
+    margin: 10px;
+}
 </style>
